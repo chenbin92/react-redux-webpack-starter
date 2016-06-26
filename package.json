@@ -1,0 +1,17 @@
+{
+  "name": "react-redux-webpack-starter",
+  "version": "1.0.0",
+  "description": "react-redux-webpack-starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "chenbin92",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}
