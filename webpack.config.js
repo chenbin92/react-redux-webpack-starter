@@ -1,6 +1,6 @@
 var path = require('path');
 
-module.exports = {
+var config = {
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
@@ -10,4 +10,16 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
+  resolve: {                                      // resolve 指定可以被 import 的文件后缀
+    extensions: ['', '.js', '.jsx']
+  },
+  module: {
+    loaders: [{
+      test: /\.js|jsx$/, // 检测哪些文件需要此loader，是一个正则表达式，用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
+      exclude: /(node_modules|bower_components)/,
+      loaders: ['babel']  // 加载模块 "babel" 是 "babel-loader" 的缩写
+    }]
+  }
 };
+
+module.exports = config;
