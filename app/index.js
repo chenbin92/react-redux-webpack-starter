@@ -1,4 +1,11 @@
-import ProgrammingLanguages from './main.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-let p = new ProgrammingLanguages("ES6", 2015);
-document.write(p.say());
+import Hello from './component/Hello';
+
+ReactDOM.render(
+  <Hello />,
+  document.getElementById('root')
+);
+
+console.log(document.getElementById('root'));
