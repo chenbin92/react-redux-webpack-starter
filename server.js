@@ -12,8 +12,6 @@ var server = new webpackDevServer(compiler, {
   stats: { colors: true }
 });
 
-config.entry.unshift('webpack-dev-server/client?http://localhost:8080', 'webpack/hot/dev-server');
-
 server.listen(8080, "localhost", function(err) {
   if(err) {
     console.log(err);

@@ -4,6 +4,8 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var config = {
   entry: [
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080',
     path.resolve(__dirname, 'app/index.js')       // 定义入口文件
   ],
   output: {                                       // 定义出口目录
