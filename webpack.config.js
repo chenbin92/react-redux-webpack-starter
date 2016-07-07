@@ -1,8 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
-var config = {
+const config = {
+  devtool: "source-map", // or "inline-source-map"
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
@@ -17,17 +18,23 @@ var config = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders: [{
-      test: /\.js|jsx$/, // 检测哪些文件需要此loader，是一个正则表达式，用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
-      exclude: /(node_modules|bower_components)/,
-      loaders: ['babel']  // 加载模块 "babel" 是 "babel-loader" 的缩写
-    }]
+    loaders: [
+      {
+        test: /\.js|jsx$/, // 检测哪些文件需要此loader，是一个正则表达式，用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
+        exclude: /(node_modules|bower_components)/,
+        loaders: ['babel']  // 加载模块 "babel" 是 "babel-loader" 的缩写
+      },
+      {
+        test: /(\.css|\.scss)$/,
+        loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+      }
+    ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' })
   ]
-}
+};
 
 module.exports = config;
