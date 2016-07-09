@@ -12,7 +12,7 @@ const config = {
   output: {                                       // 定义出口目录
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/' // html引用路径
+    publicPath: 'http://localhost:8080/' // html引用路径
   },
   resolve: {                                      // resolve 指定可以被 import 的文件后缀
     extensions: ['', '.js', '.jsx']
@@ -27,13 +27,20 @@ const config = {
       {
         test: /(\.css|\.scss)$/,
         loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'url?limit=10000&name=img/[hash:8].[name].[ext]',
+          'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+        ]
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
   ]
 };
 
