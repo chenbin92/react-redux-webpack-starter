@@ -8,7 +8,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   h1 {
-    color: red;
+    color: rgba(41, 58, 64, 0.82);
+    font-size: 42px;
+  }
+  p {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
   }
 }

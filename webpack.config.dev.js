@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   devtool: "source-map", // or "inline-source-map"
@@ -38,6 +39,15 @@ const config = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'app/index.tpl.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new OpenBrowserPlugin({ url: 'http://localhost:8080/' })

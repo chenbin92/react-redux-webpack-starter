@@ -9,6 +9,7 @@ class Hello extends React.Component {
       <div className="container">
         <h1>Hello React</h1>
         <img src={logo} />
+        <p>Guangzhou, China <br/> chenbin92</p>
       </div>
     );
   }

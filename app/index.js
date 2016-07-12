@@ -7,5 +7,3 @@ ReactDOM.render(
   <Hello />,
   document.getElementById('root')
 );
-
-console.log(document.getElementById('root'));

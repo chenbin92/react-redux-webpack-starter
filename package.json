@@ -5,10 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "node server.js"
+    "start": "export NODE_ENV=development && node server.js  && npm run lint:watch",
+    "start:prod": "export NODE_ENV=production && npm run lint:watch && npm run build && node server.js",
+    "build": "npm run remove:build && NODE_ENV=production && webpack -p --config webpack.config.prod.js --progress --colors",
+    "clean:build": "npm run remove-build && mkdir build",
+    "remove:build": "rimraf build",
+    "lint": "esw webpack.config.* app",
+    "lint:watch": "npm run lint -- --watch"
   },
-  "author": "chenbin92",
+  "author": "chenbin92 (https://github.com/chenbin92)",
   "license": "ISC",
   "dependencies": {
     "react": "^15.1.0",
@@ -22,10 +27,13 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.0",
+    "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
-    "eslint": "^3.0.0",
+    "eslint": "^2.9.0",
     "eslint-plugin-react": "^5.2.2",
+    "eslint-watch": "^2.1.13",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^1.8.0",
     "node-sass": "^3.8.0",
     "open-browser-webpack-plugin": "0.0.2",
