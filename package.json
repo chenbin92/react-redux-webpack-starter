@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "export NODE_ENV=development && node server.js  && npm run lint:watch",
-    "start:prod": "export NODE_ENV=production && npm run lint:watch && npm run build && node server.js",
+    "start:prod": "export NODE_ENV=production && npm run build && node server.js",
     "build": "npm run remove:build && NODE_ENV=production && webpack -p --config webpack.config.prod.js --progress --colors",
     "clean:build": "npm run remove-build && mkdir build",
     "remove:build": "rimraf build",
