@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const config = {
   devtool: "source-map", // or "inline-source-map"
@@ -50,7 +51,8 @@ const config = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/' }),
+    new DashboardPlugin()
   ]
 };
 
