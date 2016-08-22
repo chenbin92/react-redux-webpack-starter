@@ -39,6 +39,7 @@ $ npm start
 
 you should see a new browser tap opening and a title of "Hello React” in [http://localhost:8080/](http://localhost:8080/), page hot reloads automatically when there are changes
 
+![Webpack-dashboard](http://i2.buimg.com/4851/c971b58acc349be2.png)
 ![homepage](https://cloud.githubusercontent.com/assets/3995814/16775798/ef9cf446-4894-11e6-9510-af171fec3107.png)
 
 When you run npm start:
